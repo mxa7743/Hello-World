@@ -1,0 +1,31 @@
+float circleX;
+float circleY;
+float xspeed = 9;
+float yspeed = 9;
+void setup() {
+size(600, 600);
+circleX=random(100,500);
+circleY=random(200, 400);
+}
+
+void draw() {
+background(255);
+fill(0);
+stroke(255);
+ellipse(circleX, circleY, 30, 30);
+circleX = circleX + xspeed;
+circleY = circleY + yspeed;
+
+if (circleX > width-15) {
+xspeed = -6;
+}
+if (circleX < 15) {
+xspeed = 6;
+}
+if (circleY > height-15) {
+yspeed = -8;
+}
+if (circleY < 15) {
+yspeed = 8;
+}
+}
