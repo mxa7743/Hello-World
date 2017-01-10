@@ -1,7 +1,8 @@
 float circleX;
 float circleY;
-float xspeed = 9;
+float xspeed = -9;
 float yspeed = 9;
+
 void setup() {
 size(600, 600);
 circleX=random(100,500);
@@ -10,22 +11,33 @@ circleY=random(200, 400);
 
 void draw() {
 background(255);
-fill(0);
+displayBall();
+moveBall();
+checkEdges();
+}
+
+void displayBall() {
+  fill(0);
 stroke(255);
 ellipse(circleX, circleY, 30, 30);
+}
+
+void moveBall() {
 circleX = circleX + xspeed;
 circleY = circleY + yspeed;
+}
 
+
+void checkEdges() {
 if (circleX > width-15) {
-xspeed = -6;
+xspeed = -13;
 }
 if (circleX < 15) {
-xspeed = 6;
+xspeed = 7;
 }
 if (circleY > height-15) {
-yspeed = -8;
+yspeed = -12;
 }
 if (circleY < 15) {
-yspeed = 8;
-}
-}
+yspeed = 9;
+}}
