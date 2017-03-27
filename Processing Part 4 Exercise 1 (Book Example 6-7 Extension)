@@ -1,0 +1,20 @@
+PFont font ;
+PFont font2 ;
+
+
+void setup() {
+  size (600, 500) ;
+  background (255,255,255) ;
+  smooth() ;
+  font = loadFont ("Chalkboard-Bold-48.vlw") ;
+  font2 = loadFont ("Futura-MediumItalic-48.vlw") ;
+}
+
+void draw() {
+  fill (190,0,0) ;
+  textFont (font) ;
+  text ("Matteo Agius-D'Arrigo" , 20, 100) ;
+  fill (0, 0, 190) ;
+  textFont (font2) ;
+  text ("Matteo Agius-D'Arrigo" , 20, 300) ;
+}
