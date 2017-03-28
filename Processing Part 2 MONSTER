@@ -1,0 +1,57 @@
+size(300,300);
+smooth();
+background(0,200,0);
+
+noFill();
+ellipse(80, 66, 55, 55);
+ellipse(80, 66, 30, 30);
+ellipse(80, 67, 31, 31);
+
+ellipse(220, 66, 55, 55);
+ellipse(220, 66, 29, 29);
+ellipse(220, 67, 31, 31);
+
+fill(24, 152, 255);
+ellipse(80,66,20,20);
+ellipse(220,66,20,20);
+noFill();
+
+rect(40, 230, 33, 36);
+rect(50,266,15,40);
+
+rect(232, 230, 33, 36);
+
+rect(240,266,15,40);
+
+curveTightness(-8.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-7.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-6.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-5.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-4.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(3.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(2.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-0.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-1.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-2.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+curveTightness(-3.5);
+curve(0, 0, 0, 150, 300, 150, 300, 0);
+
+
+fill(255, 200, 150);
+noStroke();
+ellipse(150,80,20,70);
+ellipse(150,120,30,80);
+fill(255,0,0);
+stroke(255,0,0);
+triangle(120,176,120,150,130,176);
+triangle(180,176,180,150,170,176);
