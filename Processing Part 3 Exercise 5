@@ -1,0 +1,104 @@
+int x=0;
+int y=0;
+float wx;
+float wy;
+float mx;
+float my;
+float easing = 0.05;
+int radius = 24;
+int edge = 100;
+int inner = edge + radius;
+
+void setup() {
+
+size(700,700);
+smooth();
+
+
+}
+void draw() {
+  background(255);
+Monster(); 
+
+
+if (keyPressed == true && key == 'g') {
+
+       stroke(0,250,0);
+       } else if (keyPressed == true && key == 'b') {
+         stroke(0,0,250);
+       }
+         else{
+         noStroke();
+         }
+}
+
+  
+void Monster() {
+  
+  //translate stuff
+  translate(x,y);
+
+if(keyPressed && key == CODED ) {
+  if(keyCode == UP)
+{y=y-5;}
+  if(keyCode == DOWN)
+  {y=y+5;}
+  if(keyCode == RIGHT)
+  {x=x+5;}
+  if(keyCode == LEFT)
+{x=x-5;}
+}
+  
+fill(250,50,250);
+rect(40,20,230,200);
+
+fill(250,0,0);
+ellipse(80, 66, 55, 55);
+ellipse(80, 66, 30, 30);
+ellipse(80, 67, 31, 31);
+
+ellipse(220, 66, 55, 55);
+ellipse(220, 66, 29, 29);
+ellipse(220, 67, 31, 31);
+
+{ 
+  if (abs(mouseX - mx) > 0.1) {
+    mx = mx + (mouseX - mx) * easing;
+  }
+  if (abs(mouseY - my) > 0.1) {
+    my = my + (mouseY- my) * easing;
+  }
+  
+  mx = constrain(mx, 58, 100);
+  my = constrain(my, 45,84);
+  
+  
+  
+  
+   if (abs(mouseX - wx) > 0.1) {
+    wx = wx + (mouseX - wx) * easing;
+  }
+  if (abs(mouseY - wy) > 0.1) {
+    wy = wy + (mouseY- wy) * easing;
+  }
+  
+  wx = constrain(wx, 200, 245);
+  wy = constrain(wy, 45,84);
+  fill(24, 152, 255); //Blue eyes
+ellipse(mx,my,10,10);
+
+
+ellipse(wx,wy,10,10);
+}
+
+
+fill(255, 200, 150);
+noStroke();
+ellipse(150,80,20,70);
+ellipse(150,120,30,80);
+fill(255,0,0);
+stroke(255,0,0);
+triangle(120,176,120,150,130,176);
+triangle(180,176,180,150,170,176);
+}
+
