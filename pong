@@ -1,0 +1,101 @@
+float circleX;
+float circleY;
+float xspeed = -5;
+float yspeed = 5;
+float paddleX, paddleY, paddleW, paddleH, PaddleS;
+  boolean up;
+  PFont font;
+float timer = millis() / 1000 ;
+int counter = 0 ;
+
+void setup() {
+size(600, 600);
+circleX=random(350,550);
+circleY=random(300, 350);
+ 
+  rectMode(CENTER);
+  paddleX = 20;
+  paddleY = height/2;
+  paddleW = 20;
+  paddleH = 100;
+  PaddleS = 10;
+  
+ font = loadFont ("Krungthep-70.vlw") ;
+}
+void draw() {
+frameRate(60);
+background(255);
+displayBall();
+moveBall();
+checkEdges();
+displayPaddle();
+movePaddle();
+text();
+respawn();
+}
+  
+void displayBall() {
+  if (keyPressed) {
+    frameRate(100);
+  background(random(255),random(255),random(255));
+fill(random(255),random(255),random(255));
+stroke(255);
+ellipse(circleX, circleY, 25, 25); 
+textSize(60);
+text ("YAK MODE", 136, 300);
+  }
+ else { 
+ fill(0);
+stroke(255);
+ellipse(circleX, circleY, 25, 25);
+}}
+
+void moveBall() {
+circleX = circleX + xspeed;
+circleY = circleY + yspeed;
+}
+
+void checkEdges() {
+if (circleX > width-15) {
+xspeed = random(-8, -5);
+}
+
+if (circleY > height-15) {
+yspeed = random(-8, -5);
+}
+if (circleY < 15) {
+yspeed = random(5, 8);
+}}
+
+void displayPaddle() {
+  fill(0);
+  rect(paddleX, paddleY, paddleW, paddleH);
+}
+
+void movePaddle() {
+paddleY=mouseY;
+  if ((circleX < 20 + paddleX) && (circleY > paddleY-50) && (circleY < paddleY+50)){
+xspeed = random(5, 8);
+}}
+
+void text() {
+  textSize(12);
+ text ("Matteo Agius-D'Arrigo's Pong", 210, 35) ;
+  text ("Deaths:", 472, 34) ;
+  text (counter , 520 , 35) ; 
+  timer = millis() / 700 ;
+  text (timer, 70, 35);
+  println (timer);
+}
+
+void respawn () { 
+   if (circleX <= 5) {
+  
+      circleX = 300 ;
+      circleY = 300 ;
+         delay(400);
+      counter += 1 ;
+      timer = 0;
+      println (counter);
+    }}
+  
