@@ -1,0 +1,127 @@
+PImage img;
+PFont font;
+float imageX;
+float imageY;  
+float red;
+float green; 
+float blue; 
+float rotation;
+boolean rotate; 
+float tint; 
+boolean tintonoff; 
+PFont font2;
+boolean like;
+
+void setup() {
+    size(600, 500);
+    img = loadImage("space.jpg");
+   
+
+    imageX = 300;
+    imageY = 300;
+    rotation = 0;
+
+}
+    
+   void draw() {
+    background(255,252,204);
+      font = loadFont("HelveticaNeue-Bold-17.vlw");
+          textFont(font);
+              if(mousePressed){ //buttons  
+       if(mouseY > 471 && mouseY < 491 && mouseX < 370 && mouseX > 310){ // red tint 
+           red = 255;
+           green = 0;
+           blue = 0;
+           tintonoff = true;
+       } else if(mouseY > 440 && mouseY < 460 && mouseX < 370 && mouseX > 310){ // green tint
+           red = 0;
+           green = 255;
+           blue = 0; 
+           tintonoff = true;
+       } else if(mouseY > 440 && mouseY < 460 && mouseX < 290 && mouseX > 230){  //blue tint
+           red = 0;
+           green = 0;
+           blue = 255; 
+           tintonoff = true;
+       } else if(mouseY > 471 && mouseY < 491 && mouseX < 290 && mouseX > 230){  //purple tint 
+           red = 255;
+           green = 0;
+           blue = 255;
+           tintonoff = true;
+       } else if(mouseY > 471 && mouseY < 491 && mouseX < 190 && mouseX > 130){ //reset tint 
+           tintonoff = false;
+           imageX = 300;
+           imageY = 300;
+       }
+       if (mouseY > 450 && mouseY < 470 && mouseX < 190 && mouseX > 130 && rotate == false){
+         rotation += 90;
+         rotate = true; 
+       }
+       if(mouseY > 455 && mouseY < 485 && mouseX < 430 && mouseX > 400){
+         imageX += .8;
+         imageY += .8;
+       }
+       if(mouseY > 455 && mouseY < 485 && mouseX < 480 && mouseX > 450){
+         imageX -= .8;
+         imageY -= .8;
+       }
+      }
+     
+     rectMode(CORNER);
+   fill(39,101,137);  
+   rect(0,0,80, height);
+   rect(width-80, 0,80, height);
+          fill(68,36,23);
+     ellipse(width/2,height+30,width+32,210);
+     fill(255, 0, 0);
+     rect(310, 471, 60, 20);  //Red Filter
+     fill(0, 255, 0);
+     rect(310, 440, 60, 20);  //Green Filter
+     fill(0, 0, 255);
+     rect(230, 440, 60, 20);  //Blue Filter
+     fill(255, 0, 255);
+     rect(230, 471, 60, 20);  //Purple Filter
+          fill(255,252,204);
+     rect(130, 471, 80, 20); // Reset filter
+         fill(255,252,204);
+    // rect(0, 0, 200, height);  //edit area box 
+
+     rect(130, 446, 80, 20);  //Rotate 
+     fill(0);
+       text("Rotate",142, 462);
+     text("Reset",145, 487);
+            rectMode(CORNER);
+     strokeWeight(0);
+   
+     fill(255,252,204);
+     rect(450, 455, 30, 30);  //Scale up
+     fill(255,252,204);
+     rectMode(CORNER);
+     rect(400, 455, 30, 30);  //Scale down 
+     fill(0);
+     rectMode(CENTER);
+     rect(465, 470, 24, 5); //minus sign 
+          fill(0);
+     rectMode(CENTER);
+     rect(415, 470, 24, 5); //plus sign 
+     rect(415, 470, 5, 24); //plus sign 
+  font2 = loadFont("SnellRoundhand-Black-48.vlw"); //tile font
+   textFont(font2);
+   fill(255,0,0);
+   text("Yakagram",180, 60);
+   
+     imageMode(CENTER); 
+     translate(width/2, height/2 + 5);
+     rotate(radians(rotation));
+     image(img, 0, 0, imageX, imageY);
+     if(tintonoff == true){ 
+     tint(red, green, blue);
+     }else if(tintonoff == false){
+       noTint();
+     }
+  }
+    
+
+void mouseReleased() {
+  rotate = false;
+}
